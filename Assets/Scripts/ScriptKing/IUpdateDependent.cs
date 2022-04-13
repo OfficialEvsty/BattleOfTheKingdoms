@@ -6,7 +6,7 @@ namespace BattleOfKingdoms.Game.Input
 {
     public interface IUpdateDependent
     {
-        void OnUpdate();
+        abstract void OnUpdate();
     }
 }
 

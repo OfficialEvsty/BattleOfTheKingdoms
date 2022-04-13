@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class MouseLook : MonoBehaviour
+public class MouseLook
 {
-    
+    private Transform m_targetTransform;
+
+    public MouseLook(Transform transformTarget)
+    {
+        m_targetTransform = transformTarget;
+    }
     public enum RotationAxes
     {
         MouseXAndY = 0,
@@ -23,27 +29,27 @@ public class MouseLook : MonoBehaviour
         if (body != null)
             body.freezeRotation = true;*/
     }
-    void Update()
+    public void UpdateRotation()
     {
         if (m_axes == RotationAxes.MouseX)
         {
-            transform.Rotate(0, Input.GetAxis("Mouse X") * SensitivityHor, 0);
+            m_targetTransform.Rotate(0, Input.GetAxis("Mouse X") * SensitivityHor, 0);
         }
         else if (m_axes == RotationAxes.MouseY)
         {
             f_rotationX -= Input.GetAxis("Mouse Y") * SensitivityVert;
             f_rotationX = Mathf.Clamp(f_rotationX, MinimumVert, MaximumVert);
-            float rotationY = transform.localEulerAngles.y;
-            transform.localEulerAngles = new Vector3(f_rotationX, rotationY, 0);
+            float rotationY = m_targetTransform.localEulerAngles.y;
+            m_targetTransform.localEulerAngles = new Vector3(f_rotationX, rotationY, 0);
         }
         else
         {
             f_rotationX -= Input.GetAxis("Mouse Y") * SensitivityVert;
             f_rotationX = Mathf.Clamp(f_rotationX, MinimumVert, MaximumVert);
             float delta = Input.GetAxis("Mouse X") * SensitivityHor;
-            float rotationY = transform.localEulerAngles.y + delta;
-            transform.localEulerAngles = new Vector3(f_rotationX, rotationY, 0);
-        }
+            float rotationY = m_targetTransform.localEulerAngles.y + delta;
+            m_targetTransform.localEulerAngles = new Vector3(f_rotationX, rotationY, 0);
+    }        
     }
   
 }

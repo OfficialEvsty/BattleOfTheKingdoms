@@ -12,7 +12,10 @@ namespace BattleOfKingdoms.Game.Entities
         private void FollowPlayer()
         {            
             if(Target != null)
-                transform.position = Target.position + m_offset;           
+            {
+                transform.position = Target.position + m_offset;
+                transform.rotation = Target.rotation;
+            }                        
         }
 
         private void LateUpdate()

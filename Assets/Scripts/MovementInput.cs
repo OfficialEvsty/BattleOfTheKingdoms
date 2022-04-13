@@ -13,8 +13,5 @@ public abstract class MovementInput : IUpdateDependent
 
     protected abstract void UpdateMovement();
 
-    public void OnUpdate()
-    {
-        UpdatePosition();
-    }
+    public abstract void OnUpdate();
 }

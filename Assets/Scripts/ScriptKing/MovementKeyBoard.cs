@@ -4,29 +4,31 @@ using UnityEngine;
 
 public class MovementKeyBoard : MovementInput
 {
-    [SerializeField] public float f_movementSpeed = 5;
+    [SerializeField] public float f_movementSpeed = 2;
     private Transform m_targetTransform;
+    private MouseLook m_mouseLook;
     public MovementKeyBoard(Transform targetTransform)
     {
         m_targetTransform = targetTransform;
+        m_mouseLook = new MouseLook(targetTransform);
     }
     protected override void UpdateMovement()
     {
         throw new System.NotImplementedException();
     }
 
-    public void LateUpdate()
+    public override void OnUpdate()
     {
-        UpdatePosition(); 
+        UpdatePosition();
+        m_mouseLook.UpdateRotation();
     }
 
     protected override void UpdatePosition()
     {
-        Debug.Log("Call");
         float verticalMove = Input.GetAxis("Vertical");
         float horizontalMove = Input.GetAxis("Horizontal");
 
-        Vector3 movement = new Vector3(verticalMove, 0, horizontalMove);
+        Vector3 movement = new Vector3(horizontalMove, 0, verticalMove);
         m_targetTransform.Translate(movement * f_movementSpeed * Time.fixedDeltaTime);
     }
 }

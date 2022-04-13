@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using BattleOfKingdoms.Game.Input;
-public class PlayerInput : MonoBehaviour
+using Photon.Pun;
+public class PlayerInput : MonoBehaviourPunCallbacks
 {
     private ButtonPressListener m_buttonPressListener;
     private List<IUpdateDependent> m_updateDependents = new List<IUpdateDependent>();
@@ -20,10 +21,13 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        foreach(var updateDependent in m_updateDependents)
+        if (photonView.IsMine)
         {
-            updateDependent.OnUpdate();
-        }
+            foreach (var updateDependent in m_updateDependents)
+            {
+                updateDependent.OnUpdate();
+            }
+        }        
     }
 
     private void OnDestroy()
