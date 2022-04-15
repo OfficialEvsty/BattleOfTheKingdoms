@@ -37,7 +37,7 @@ public class RaiseEventManager : MonoBehaviourPun
                         Debug.Log($"Свойство HasTurn у игрока {playerQueue.photonView.ViewID} было изменено на {playerQueue.HasTurn}");
                         if (!playerQueue.HasTurn)
                         {
-                            isTurnEnd = !playerQueue.HasTurn;
+                            isTurnEnd = true;
                             Debug.Log($"Player {playerQueue.photonView.ViewID} закончил ход и уведомил об этом всех.");
                         }
                     }                                      

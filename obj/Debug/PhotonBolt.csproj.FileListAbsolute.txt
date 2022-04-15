@@ -209,7 +209,6 @@ D:\Unity Projects\BattleOfKingdoms\Temp\Bin\Debug\UnityEngine.XRModule.dll
 D:\Unity Projects\BattleOfKingdoms\Temp\Bin\Debug\websocket-sharp.dll
 D:\Unity Projects\BattleOfKingdoms\Temp\Bin\Debug\Unity.Cecil.dll
 D:\Unity Projects\BattleOfKingdoms\Temp\Bin\Debug\SyntaxTree.VisualStudio.Unity.Messaging.dll
-D:\Unity Projects\BattleOfKingdoms\Temp\Bin\Debug\PhotonRealtime.dll
 D:\Unity Projects\BattleOfKingdoms\Temp\Bin\Debug\UnityEngine.xml
 D:\Unity Projects\BattleOfKingdoms\Temp\Bin\Debug\UnityEngine.AIModule.xml
 D:\Unity Projects\BattleOfKingdoms\Temp\Bin\Debug\UnityEngine.ARModule.xml
@@ -298,8 +297,7 @@ D:\Unity Projects\BattleOfKingdoms\Temp\Bin\Debug\udpkit.platform.dotnet.xml
 D:\Unity Projects\BattleOfKingdoms\Temp\Bin\Debug\udpkit.xml
 D:\Unity Projects\BattleOfKingdoms\Temp\Bin\Debug\UnityEngine.UI.pdb
 D:\Unity Projects\BattleOfKingdoms\Temp\Bin\Debug\UnityEditor.UI.pdb
-D:\Unity Projects\BattleOfKingdoms\Temp\Bin\Debug\PhotonRealtime.pdb
-D:\Unity Projects\BattleOfKingdoms\obj\Debug\PhotonBolt.csproj.AssemblyReference.cache
 D:\Unity Projects\BattleOfKingdoms\obj\Debug\PhotonBolt.csproj.CoreCompileInputs.cache
 D:\Unity Projects\BattleOfKingdoms\obj\Debug\PhotonBolt.dll
 D:\Unity Projects\BattleOfKingdoms\obj\Debug\PhotonBolt.pdb
+D:\Unity Projects\BattleOfKingdoms\obj\Debug\PhotonBolt.csproj.CopyComplete

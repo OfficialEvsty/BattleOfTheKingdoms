@@ -57,9 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Photon\PhotonRealtime\Demos\DemoLoadBalancing\ConnectAndJoinRandomLb.cs" />
-    <Compile Include="Assets\Scripts\ScriptKing\PlayerInput.cs" />
+    <Compile Include="Assets\Scripts\ScriptKing\Entities\PlayerInput.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
-    <Compile Include="Assets\Scripts\ScriptKing\TurnControls.cs" />
+    <Compile Include="Assets\Scripts\ScriptKing\Entities\TurnControls.cs" />
     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\WebSocket.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextButtonTransition.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
@@ -70,7 +70,7 @@
     <Compile Include="Assets\Scripts\EventSystem\GameEventSystem.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\Scripts\Networking\Lobby\EntryPlayerHelper.cs" />
-    <Compile Include="Assets\Scripts\ScriptKing\MovementKeyBoard.cs" />
+    <Compile Include="Assets\Scripts\ScriptKing\Managing Movement\MovementKeyBoard.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatAppIdCheckerUI.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\AppSettingsExtensions.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -92,7 +92,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs" />
     <Compile Include="Assets\CameraPlayerTracking.cs" />
-    <Compile Include="Assets\Scripts\MovementInput.cs" />
+    <Compile Include="Assets\Scripts\ScriptKing\Managing Movement\MovementsInput.cs" />
     <Compile Include="Assets\Scripts\Networking\RoomsListingScene\UIShowRooms.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\Scripts\Networking\RoomsListingScene\UpdaterListRoom.cs" />
@@ -100,20 +100,19 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\Scripts\Networking\Loading\UIVersionShower.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\EventSystemSpawner.cs" />
-    <Compile Include="Assets\Scripts\ScriptKing\VirtualLeader.cs" />
+    <Compile Include="Assets\Scripts\ScriptKing\Entities\VirtualLeader.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
-    <Compile Include="Assets\Scripts\CustomDataType\Player.cs" />
-    <Compile Include="Assets\Scripts\ScriptKing\Construction.cs" />
+    <Compile Include="Assets\Scripts\ScriptKing\Entities\Player.cs" />
+    <Compile Include="Assets\Scripts\Not Used\Construction.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\Scripts\ScriptKing\IUpdateDependent.cs" />
-    <Compile Include="Assets\CustomDataType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\FriendItem.cs" />
     <Compile Include="Assets\Scripts\EventSystem\IGameEventObserverBase.cs" />
     <Compile Include="Assets\Scripts\ScriptKing\PropertyConstruction.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
-    <Compile Include="Assets\Scripts\ScriptKing\MouseLook.cs" />
+    <Compile Include="Assets\Scripts\ScriptKing\Managing Movement\MouseLook.cs" />
     <Compile Include="Assets\Scripts\Networking\RoomsListingScene\RoomsManager.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatGui.cs" />
     <Compile Include="Assets\Scripts\ScriptKing\ButtonPressListener.cs" />
@@ -122,7 +121,7 @@
     <Compile Include="Assets\Scripts\Networking\Lobby\PlayerHolder.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
-    <Compile Include="Assets\Scripts\SpawnHelper.cs" />
+    <Compile Include="Assets\Scripts\Not Used\SpawnHelper.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextToggleIsOnTransition.cs" />
@@ -142,6 +141,10 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\EventSystem\PlayerInstantiateEvent.cs" />
     <Compile Include="Assets\Scripts\Networking\CreatingRoomManager\CreatingRoomManager.cs" />
+    <Compile Include="Assets\Scripts\ScriptKing\Entities\Kingdom.cs" />
+    <Compile Include="Assets\Scripts\ScriptKing\Entities\Effect.cs" />
+    <Compile Include="Assets\Scripts\ScriptKing\Entities\Resource.cs" />
+    <Compile Include="Assets\Scripts\ScriptKing\Entities\Dice.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
