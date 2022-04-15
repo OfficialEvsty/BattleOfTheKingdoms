@@ -1,0 +1,2 @@
+D:\Unity Projects\BattleOfKingdoms\obj\Debug\PhotonBolt-Editor.csproj.AssemblyReference.cache
+D:\Unity Projects\BattleOfKingdoms\obj\Debug\PhotonBolt-Editor.csproj.CoreCompileInputs.cache

@@ -49,7 +49,7 @@ namespace BattleOfKingdoms.Networking
                 {
                     _cashedRoomList[info.Name] = info;
                 }
-                Debug.Log("Room: " + info.Name);
+                //Debug.Log("Room: " + info.Name);
             }
         }
 
@@ -58,7 +58,7 @@ namespace BattleOfKingdoms.Networking
         /// </summary>
         public override void OnJoinedLobby()
         {
-            Debug.Log("Lobby is " + PhotonNetwork.InLobby);
+            //Debug.Log("Lobby is " + PhotonNetwork.InLobby);
         }
 
         /// <summary>

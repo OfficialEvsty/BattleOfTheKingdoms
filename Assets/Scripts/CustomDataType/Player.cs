@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Photon.Pun;
+using Photon.Realtime;
+using ExitGames.Client.Photon;
 using UnityEngine.Events;
 using System;
 using BattleOfKingdoms.EventSystems;
@@ -10,7 +12,7 @@ using BattleOfKingdoms.EventSystems;
 namespace BattleOfKingdoms.Game.Entities
 {
     [RequireComponent(typeof(PlayerInput))]
-    public class Player : MonoBehaviour
+    public class Player : MonoBehaviourPunCallbacks
     {
         private RaycastHit m_hit;
         private PlayerInput m_playerInput;
@@ -18,7 +20,7 @@ namespace BattleOfKingdoms.Game.Entities
         public event System.Action EndTurnEvent;
 
         private NavMeshAgent m_navMeshAgent;
-        public bool HasTurn { get; private set; }
+        public bool HasTurn { get; set; }
 
 
         private void Awake()
@@ -37,7 +39,8 @@ namespace BattleOfKingdoms.Game.Entities
 
         private void Update()
         {
-            if (m_playerInput.TurnControls.EndTurnPressed && HasTurn)
+            Debug.Log($"{photonView.ViewID} Очередь: {HasTurn} Нажал ли кнопку {m_playerInput.TurnControls.EndTurnPressed}, Его ли ViewID: {photonView.IsMine}");
+            if (m_playerInput.TurnControls.EndTurnPressed && HasTurn && photonView.IsMine)
                 EndTurn();
         }
 
@@ -50,15 +53,18 @@ namespace BattleOfKingdoms.Game.Entities
         {
             HasTurn = true;
             m_playerInput.TurnControls.IsEnabled = true;
+            PhotonNetwork.RaiseEvent(RaiseEventManager.NOTIFY_PLAYER_TURN, HasTurn, RaiseEventOptions.Default, SendOptions.SendReliable);
         }
 
         private void EndTurn()
         {
             if (HasTurn)
-            {
-                EndTurnEvent?.Invoke();
+            {                
                 HasTurn = false;
                 m_playerInput.TurnControls.IsEnabled = false;
+                EndTurnEvent?.Invoke();
+                PhotonNetwork.RaiseEvent(RaiseEventManager.NOTIFY_PLAYER_TURN, HasTurn, RaiseEventOptions.Default, SendOptions.SendReliable);
+                Debug.Log("Нажал на кнопку конца хода");
             }
         }
 
@@ -69,22 +75,5 @@ namespace BattleOfKingdoms.Game.Entities
                 m_playerCamera.GetComponent<CameraPlayerTracking>().Target = transform;
             }
         }
-
-        /*public static byte[] Serialize(object obj)
-        {
-            var player = (Player)obj;
-            //HasTurn
-            byte[] myPlayerBytes = new byte[1];
-            myPlayerBytes[0] = (player.HasTurn) ? (byte)1 : (byte)0 ;
-            return myPlayerBytes;
-        }
-
-        public static object Deserialize(byte[] bytes)
-        {
-            Player player = new Player();
-            //HasTurn
-            player.HasTurn = BitConverter.ToBoolean(bytes, 0);
-            return player;
-        }*/
     }
 }

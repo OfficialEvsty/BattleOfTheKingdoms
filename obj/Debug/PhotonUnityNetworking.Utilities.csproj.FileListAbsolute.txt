@@ -1,0 +1,2 @@
+D:\Unity Projects\BattleOfKingdoms\obj\Debug\PhotonUnityNetworking.Utilities.csproj.AssemblyReference.cache
+D:\Unity Projects\BattleOfKingdoms\obj\Debug\PhotonUnityNetworking.Utilities.csproj.CoreCompileInputs.cache

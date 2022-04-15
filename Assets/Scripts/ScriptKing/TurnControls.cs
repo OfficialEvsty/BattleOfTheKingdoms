@@ -21,6 +21,7 @@ public class TurnControls : IUpdateDependent
     {
         if (!IsEnabled)
         {
+            Debug.Log("Я сломан, не клацай");
             return;
         }
         f_pressTimeStamp = Time.time;

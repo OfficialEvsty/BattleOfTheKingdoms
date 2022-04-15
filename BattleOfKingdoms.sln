@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonChat", "PhotonChat.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonRealtime", "PhotonRealtime.csproj", "{1C08CDE7-DB7D-92A9-156E-F41059EFBCD7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonBolt", "PhotonBolt.csproj", "{80FAF2F9-9777-8CEB-C4AE-20FFD6201069}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonBolt-Editor", "PhotonBolt-Editor.csproj", "{53F91D7E-5E31-162E-D0E0-A32A55C78A3F}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonUnityNetworking.Editor", "PhotonUnityNetworking.Editor.csproj", "{54B05C5A-B9AF-5707-4B25-8411B2B8BF0B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonUnityNetworking.Utilities.PhotonPlayer.Editor", "PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj", "{718BD245-2482-50A3-4C1E-DAB4EF150F77}"
@@ -53,6 +57,14 @@ Global
 		{1C08CDE7-DB7D-92A9-156E-F41059EFBCD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C08CDE7-DB7D-92A9-156E-F41059EFBCD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C08CDE7-DB7D-92A9-156E-F41059EFBCD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80FAF2F9-9777-8CEB-C4AE-20FFD6201069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80FAF2F9-9777-8CEB-C4AE-20FFD6201069}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80FAF2F9-9777-8CEB-C4AE-20FFD6201069}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80FAF2F9-9777-8CEB-C4AE-20FFD6201069}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53F91D7E-5E31-162E-D0E0-A32A55C78A3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53F91D7E-5E31-162E-D0E0-A32A55C78A3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53F91D7E-5E31-162E-D0E0-A32A55C78A3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53F91D7E-5E31-162E-D0E0-A32A55C78A3F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{54B05C5A-B9AF-5707-4B25-8411B2B8BF0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{54B05C5A-B9AF-5707-4B25-8411B2B8BF0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54B05C5A-B9AF-5707-4B25-8411B2B8BF0B}.Release|Any CPU.ActiveCfg = Release|Any CPU

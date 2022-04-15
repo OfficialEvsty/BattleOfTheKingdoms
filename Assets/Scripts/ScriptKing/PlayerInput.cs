@@ -32,6 +32,7 @@ public class PlayerInput : MonoBehaviourPunCallbacks
 
     private void OnDestroy()
     {
+        Debug.Log("Событие на кнопки уничтожилось");
         TurnControls.OnInputDestroy();
     }
 }

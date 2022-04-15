@@ -1,0 +1,2 @@
+D:\Unity Projects\BattleOfKingdoms\obj\Debug\PunDemos.DemoSlotcarEditor.csproj.AssemblyReference.cache
+D:\Unity Projects\BattleOfKingdoms\obj\Debug\PunDemos.DemoSlotcarEditor.csproj.CoreCompileInputs.cache

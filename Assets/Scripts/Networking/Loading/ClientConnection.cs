@@ -26,7 +26,7 @@ namespace BattleOfKingdoms.Networking
         public override void OnConnectedToMaster()
         {
             PhotonNetwork.JoinLobby(_customLobby);
-            Debug.Log("Client was connect to Master.");
+            //Debug.Log("Client was connect to Master.");
         }
 
         public override void OnDisconnected(DisconnectCause cause)

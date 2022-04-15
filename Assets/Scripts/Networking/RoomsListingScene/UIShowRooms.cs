@@ -58,7 +58,6 @@ namespace BattleOfKingdoms.Networking
                 TMP_Text textCountPlayersRoom = roomRect.transform.Find("PlayerCountSprite").Find("Count_Text").GetComponent<TMP_Text>();
                 textCountPlayersRoom.text = room.Value.PlayerCount.ToString() + "/" + room.Value.MaxPlayers;
             }
-            Debug.Log(UpdaterListRoom.RoomList.Count);
         }
 
         public void OnEntryRoomClick()
