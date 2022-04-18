@@ -4,16 +4,41 @@ using UnityEngine;
 
 namespace BattleOfKingdoms.Game.Cards
 {
+    public enum EventCardType
+    {
+        War,
+        Peace
+    }
+
+    public enum ResourceCardType
+    {
+        Wood
+    }
+
     public class CardFactory : ICard
     {
-        public ICardEvent CreateEventCard()
+        public ICardEvent CreateEventCard(EventCardType eventType)
         {
-            return new WarEventCard();
+            switch (eventType)
+            {
+                case EventCardType.War:
+                    return new WarEventCard();
+                case EventCardType.Peace:
+                    return new PeaceEvent();
+                default:
+                    return null;
+            }
         }
 
-        public ICardResource CreateResourceCard()
+        public ICardResource CreateResourceCard(ResourceCardType resourceType)
         {
-            return new ResourceWood();
+            switch (resourceType)
+            {
+                case ResourceCardType.Wood:
+                    return new ResourceWood();
+                default:
+                    return null;
+            }
         }
     }
 }

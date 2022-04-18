@@ -15,11 +15,12 @@ namespace BattleOfKingdoms.Game.Entities
     public class Player : MonoBehaviourPunCallbacks
     {
         private RaycastHit m_hit;
-        private PlayerInput m_playerInput;
+        private PlayerInput m_playerInput;        
         private Kingdom m_kingdom;
+        private NavMeshAgent m_navMeshAgent;
         public event System.Action EndTurnEvent;
 
-        private NavMeshAgent m_navMeshAgent;
+        public PlayerDeck PlayerDeck;
         public string NickName { get { return photonView.Controller.NickName; } }
         public bool HasTurn { get; set; }
         public Kingdom Kingdom { get { return m_kingdom; } }
@@ -29,7 +30,7 @@ namespace BattleOfKingdoms.Game.Entities
         {
 
             GameEventSystem.IssueGameEvent(new PlayerInstantiateEvent() { player = this });
-            
+            PlayerDeck = GetComponentInChildren<PlayerDeck>();
             m_playerInput = GetComponent<PlayerInput>();
             m_navMeshAgent = GetComponent<NavMeshAgent>();            
         }

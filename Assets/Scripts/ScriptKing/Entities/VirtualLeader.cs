@@ -17,6 +17,7 @@ namespace BattleOfKingdoms.Game.Entities
         [Header("Список позиций спавна игроков")]
         [SerializeField] private List<Transform> SpawnPointPlayer = new List<Transform>();
         [SerializeField] private List<Kingdom> m_kingdomsList = new List<Kingdom>();
+        [SerializeField] private Deck m_deck;
         [SerializeField] private TMP_Text m_currentPlayerInTurn;
         private Player currentQueuePlayer;
         public Queue<Player> PlayersQueue = new Queue<Player>();
@@ -65,6 +66,7 @@ namespace BattleOfKingdoms.Game.Entities
             {
                 Debug.Log("Ходит " + currentQueuePlayer.name);
             }
+            m_deck.GiveEventCard(currentQueuePlayer);
         }
 
         private void OnDestroy()

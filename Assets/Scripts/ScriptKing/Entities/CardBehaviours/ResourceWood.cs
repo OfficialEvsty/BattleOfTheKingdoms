@@ -5,10 +5,11 @@ using BattleOfKingdoms.Game.Entities;
 
 namespace BattleOfKingdoms.Game.Cards
 {
-    public class ResourceWood : ICardResource
+    [RequireComponent(typeof(UIShowerResourceCardInfo))]
+    public class ResourceWood : MonoBehaviour, ICardResource
     {
-        [SerializeField] private CardResourceScriptableObject m_cardResourceSO;
-        public CardResourceScriptableObject CardInfo { get { return m_cardResourceSO; } }
+        private ResourceCardType resourceCardType = ResourceCardType.Wood;
+        public ResourceCardType ResourceCardType { get { return resourceCardType; } }
         public void ApplyResourceCard(Kingdom targetKingdom)
         {
             Debug.Log("Карта ресурсов применена");
