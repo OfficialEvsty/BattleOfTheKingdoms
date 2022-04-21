@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using BattleOfKingdoms.Game.Input;
+using BattleOfKingdoms.Game.Inputs;
 
 namespace BattleOfKingdoms.Game.Entities
 {

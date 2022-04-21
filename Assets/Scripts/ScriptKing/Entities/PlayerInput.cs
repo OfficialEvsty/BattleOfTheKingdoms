@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using BattleOfKingdoms.Game.Input;
+using BattleOfKingdoms.Game.Inputs;
 using Photon.Pun;
 
 namespace BattleOfKingdoms.Game.Entities
@@ -39,6 +39,8 @@ namespace BattleOfKingdoms.Game.Entities
                     updateDependent.OnUpdate();
                 }
             }
+
+            CatchEscapeClick();
         }
 
         private void OnDestroy()
@@ -52,6 +54,14 @@ namespace BattleOfKingdoms.Game.Entities
             if (gameObject.GetComponent<PhotonView>().IsMine)
             {
                 m_playerCamera.GetComponent<CameraPlayerTracking>().Target = transform;
+            }
+        }
+
+        private void CatchEscapeClick()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                OnClickActionsHolder.EscapeClickEvent?.Invoke();
             }
         }
     }

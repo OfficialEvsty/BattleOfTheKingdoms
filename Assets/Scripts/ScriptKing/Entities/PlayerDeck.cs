@@ -14,29 +14,38 @@ namespace BattleOfKingdoms.Game.Entities
 
         private void Awake()
         {
-            m_spawnCards.InitializeSpawnCardsPosition(transform);
+            m_spawnCards.InitializeSpawnCardsPosition(transform);            
+        }
+
+        private void Start()
+        {
+            if (m_eventCards.Count > 0)
+                m_eventCards[0].ApplyEventCard(GetComponentInParent<Player>().Kingdom);
         }
         public void AddEventCard(ICardEvent cardEvent)
         {
-            Debug.Log($"Card:{cardEvent.EventCardType} was added");
+            Debug.Log($"Card:{cardEvent} was added");
             m_eventCards.Add(m_spawnCards.SpawnEventCard(cardEvent));
         }
 
         public void AddResourceCard(ICardResource cardResource)
         {
-            Debug.Log($"Card:{cardResource.ResourceCardType} was added");
-            m_resourceCards.Add(m_spawnCards.SpawnResourceCard(cardResource));
+            if (cardResource == null)
+                return;
+            Debug.Log($"Card:{cardResource} was added");
+            m_resourceCards.Add(m_spawnCards.SpawnResourceCard(cardResource));  
         }                
         
 
-        public ICardEvent GetEventCard()
+        public void ApplyEventCard()
         {
-            return null;
+            
         }
 
-        public ICardResource GetResourceCard()
+        public void ApplyResourceCard()
         {
-            return null;
+            foreach (var card in m_resourceCards)
+                card.ApplyResourceCard(GetComponentInParent<Player>().Kingdom);
         }
     }
 }

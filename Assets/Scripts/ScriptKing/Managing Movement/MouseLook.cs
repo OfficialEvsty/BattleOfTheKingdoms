@@ -9,7 +9,7 @@ public class MouseLook
 
     public MouseLook(Transform transformTarget)
     {
-        m_targetTransform = transformTarget;
+        m_targetTransform = transformTarget;        
     }
     public enum RotationAxes
     {

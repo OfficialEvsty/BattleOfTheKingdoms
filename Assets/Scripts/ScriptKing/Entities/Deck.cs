@@ -17,7 +17,7 @@ namespace BattleOfKingdoms.Game.Entities
             get 
             { 
                 if(m_deckInitializer)
-                    return m_deckInitializer.EventCardsInDeck.Count;
+                    return m_deckInitializer.CardsEventDeck.Count;
                 return 0;
             } 
         }
@@ -28,7 +28,7 @@ namespace BattleOfKingdoms.Game.Entities
             {
                 if (m_deckInitializer)
                 {
-                    return m_deckInitializer.ResourceCardsInDeck.Count;
+                    return m_deckInitializer.CardsResourceDeck.Count;
                 }
                 return 0;
             }
@@ -36,24 +36,55 @@ namespace BattleOfKingdoms.Game.Entities
 
         private CardFactory m_cardFactory = new CardFactory();       
 
-        private void InitDesk()
+        private void InitDeñk()
         {
-            foreach (var eventType in m_deckInitializer.EventCardsInDeck)
+            foreach (var cardEvent in m_deckInitializer.CardsEventDeck)
             {
-                for (int i = 0; i < eventType.Value; i++)
-                    m_eventCards.Push(m_cardFactory.CreateEventCard(eventType.Key));
+                 m_eventCards.Push(m_cardFactory.CreateEventCard(cardEvent));
             }
 
-            foreach (var resourceType in m_deckInitializer.ResourceCardsInDeck)
-            {
-                for (int i = 0; i < resourceType.Value; i++)
-                    m_resourceCards.Push(m_cardFactory.CreateResourceCard(resourceType.Key));
+            foreach (var cardResource in m_deckInitializer.CardsResourceDeck)
+            {                
+                m_resourceCards.Push(m_cardFactory.CreateResourceCard(cardResource));
             }
         }
 
+        private void ShuffleEventDeck()
+        {
+            m_eventCards = ShuffleDeck(m_eventCards);
+        }
+
+        private void ShuffleResourceDeck()
+        {
+            m_resourceCards = ShuffleDeck(m_resourceCards);
+        }
+
+        private Stack<T> ShuffleDeck<T>(Stack<T> deckToShuffle)
+        {
+            T[] objectArray = deckToShuffle.ToArray();
+            Stack<T> shuffledStack = new Stack<T>();
+            for (int i = objectArray.Length - 1; i > 0; i--)
+            {
+                int randomIndex = Random.Range(0, i);
+                var temp = objectArray[i];
+                objectArray[i] = objectArray[randomIndex];
+                objectArray[randomIndex] = temp;
+            }
+
+            for (int i = objectArray.Length - 1; i >= 0; i--)
+            {
+                shuffledStack.Push(objectArray[i]);
+            }
+
+            return shuffledStack;
+        }
+
+
         private void Awake()
         {
-            InitDesk();
+            InitDeñk();
+            ShuffleEventDeck();
+            ShuffleResourceDeck();
             GetInfoAboutDecks();
         }
 
@@ -62,17 +93,24 @@ namespace BattleOfKingdoms.Game.Entities
             Debug.Log($"Cards in EventDeck: {m_eventCards.Count}\nCards in ResourceDeck: {m_resourceCards.Count}");
             foreach(var card in m_eventCards)
             {
-                Debug.Log($"Card: {card.EventCardType}");
+                Debug.Log($"Card: {((EventCard)card).CardInfo}");
             }
             foreach(var card in m_resourceCards)
             {
-                Debug.Log($"Card: {card.ResourceCardType}");
+                Debug.Log($"Card: {((ResourceCard)card).CardInfo}");
             }
         }
 
         public void GiveEventCard(Player player)
         {
-            player.PlayerDeck.AddEventCard(m_eventCards.Pop());
+            if(m_eventCards.Count > 0)
+                player.PlayerDeck.AddEventCard(m_eventCards.Pop());
+        }
+
+        public void GiveResourceCard(Player player)
+        {
+            if (m_resourceCards.Count > 0)
+                player.PlayerDeck.AddResourceCard(m_resourceCards.Pop());
         }
     }
 }

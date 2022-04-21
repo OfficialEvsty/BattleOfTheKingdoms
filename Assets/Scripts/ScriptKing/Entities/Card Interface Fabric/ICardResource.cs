@@ -7,7 +7,6 @@ namespace BattleOfKingdoms.Game.Cards
 {
     public interface ICardResource
     {
-        ResourceCardType ResourceCardType { get; }
         abstract void ApplyResourceCard(Kingdom kingdom);
     }
 }

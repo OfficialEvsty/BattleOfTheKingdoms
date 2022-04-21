@@ -74,23 +74,25 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\Scripts\Networking\Lobby\EntryPlayerHelper.cs" />
     <Compile Include="Assets\Scripts\ScriptKing\Managing Movement\MovementKeyBoard.cs" />
-    <Compile Include="Assets\Scripts\ScriptKing\Entities\Resource.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatAppIdCheckerUI.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\AppSettingsExtensions.cs" />
     <Compile Include="Assets\Scripts\ScriptKing\Entities\Card Interface Fabric\ICard.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\NamePickGui.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
-    <Compile Include="Assets\Scripts\ScriptKing\Entities\CardBehaviours\ResourceWood.cs" />
+    <Compile Include="Assets\Scripts\ScriptKing\Entities\SupportEntities\SpawnCards.cs" />
+    <Compile Include="Assets\Scripts\ScriptKing\Entities\CardBehaviours\ResourceCard.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\Scripts\ScriptKing\Entities\ScriptableObjects\CardResourceScriptableObject.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\Networking\Lobby\LobbyManager.cs" />
     <Compile Include="Assets\Scripts\ScriptKing\UIShowerResourceCardInfo.cs" />
+    <Compile Include="Assets\CardDesk.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\ScriptKing\Entities\Deck.cs" />
     <Compile Include="Assets\Scripts\EventSystem\IGameEventObserver.cs" />
     <Compile Include="Assets\Scripts\ScriptKing\Entities\Card Interface Fabric\CardFactory.cs" />
+    <Compile Include="Assets\Scripts\ScriptKing\Entities\CardBehaviours\EventCard.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChannelSelector.cs" />
     <Compile Include="Assets\Scripts\Networking\Addons_Crystal\CustomSceneManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
@@ -125,8 +127,8 @@
     <Compile Include="Assets\Scripts\ScriptKing\Entities\Card Interface Fabric\ICardEvent.cs" />
     <Compile Include="Assets\Scripts\ScriptKing\Managing Movement\MouseLook.cs" />
     <Compile Include="Assets\Scripts\ScriptKing\Entities\Effect.cs" />
-    <Compile Include="Assets\Scripts\ScriptKing\Entities\CardBehaviours\WarEventCard.cs" />
     <Compile Include="Assets\Scripts\Networking\RoomsListingScene\RoomsManager.cs" />
+    <Compile Include="Assets\Scripts\ScriptKing\Entities\Kingdoms\ForestKingdom.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatGui.cs" />
     <Compile Include="Assets\Scripts\ScriptKing\UIShowerEventCardInfo.cs" />
     <Compile Include="Assets\Scripts\ScriptKing\ButtonPressListener.cs" />
@@ -140,6 +142,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextToggleIsOnTransition.cs" />
+    <Compile Include="Assets\Scripts\ScriptKing\Entities\CardBehaviours\Effects\ReduceResourceEffect.cs" />
     <Compile Include="Assets\Scripts\Networking\ScriptableObjects\SingletonScriptableObject.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
@@ -158,8 +161,8 @@
     <Compile Include="Assets\Scripts\ScriptKing\Entities\Kingdom.cs" />
     <Compile Include="Assets\Scripts\EventSystem\PlayerInstantiateEvent.cs" />
     <Compile Include="Assets\Scripts\Networking\CreatingRoomManager\CreatingRoomManager.cs" />
-    <Compile Include="Assets\Scripts\ScriptKing\Entities\SupportEntities\SpawnCards.cs" />
-    <Compile Include="Assets\Scripts\ScriptKing\Entities\CardBehaviours\PeaceEvent.cs" />
+    <Compile Include="Assets\Scripts\ScriptKing\Managing Movement\ManagingUI\SceneUIController.cs" />
+    <Compile Include="Assets\Scripts\ScriptKing\Entities\SupportEntities\OnClickActionsHolder.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

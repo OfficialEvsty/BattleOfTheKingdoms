@@ -6,7 +6,7 @@ namespace BattleOfKingdoms.Game.Cards
 {
     public interface ICard
     {
-        abstract ICardEvent CreateEventCard(EventCardType eventType);
-        abstract ICardResource CreateResourceCard(ResourceCardType resourceType);
+        abstract ICardEvent CreateEventCard(CardEventScriptableObject cardEventSO);
+        abstract ICardResource CreateResourceCard(CardResourceScriptableObject cardResourceSO);
     }
 }

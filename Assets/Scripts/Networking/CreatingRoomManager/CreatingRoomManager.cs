@@ -15,13 +15,14 @@ namespace BattleOfKingdoms.Networking
     {
         [SerializeField] private InputField s_nameInputField;
         [SerializeField] private InputField s_passwordInputField;
+        [SerializeField] private byte i_maxPlayersInRoom = 8;
 
         /// <summary>
         /// Создает комнату/лобби.
         /// </summary>
         public void CreateRoom()
         {
-            PhotonNetwork.CreateRoom(s_nameInputField.text);
+            PhotonNetwork.CreateRoom(s_nameInputField.text, new Photon.Realtime.RoomOptions() { MaxPlayers = i_maxPlayersInRoom });
         }
 
         /// <summary>

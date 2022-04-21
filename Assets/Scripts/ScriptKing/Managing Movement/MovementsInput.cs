@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using BattleOfKingdoms.Game.Input;
+using BattleOfKingdoms.Game.Inputs;
 
 public abstract class MovementsInput : IUpdateDependent 
 {

@@ -7,8 +7,7 @@ namespace BattleOfKingdoms.Game.Cards
 {
     public interface ICardEvent
     {
-        EventCardType EventCardType { get; }
-        abstract void ApplyEventCard(/*Kingdom kingdom*/);
+        abstract void ApplyEventCard(Kingdom kingdom);
     }
 }
 

@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,14 +8,19 @@ using UnityEngine.Events;
 
 namespace BattleOfKingdoms.Networking
 {
-    public class LobbyManager : MonoBehaviour
+    public class LobbyManager : MonoBehaviourPunCallbacks
     {
         public UnityEvent OnReadyEvent;
 
         public void Exit()
         {
-            SceneManager.LoadScene("Menu");
             PhotonNetwork.LeaveRoom();
+        }
+
+        public override void OnLeftRoom()
+        {
+            base.OnLeftRoom();
+            SceneManager.LoadScene("Menu");
         }
 
         public void OnReadyClick()
@@ -41,8 +47,6 @@ namespace BattleOfKingdoms.Networking
                 PhotonNetwork.LoadLevel("Game");
                 Debug.Log("StartGame");
             }
-                
-
             else
                 Debug.Log("Cannot start the game");
         }

@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c9156e5236113f47a408098642caeac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_kingdom: {fileID: 5364730838463368239, guid: 12f55a6c6bfcc6c41aa29b3a4ac10b6f, type: 3}
   PlayerDeck: {fileID: 1846043519077854741}
 --- !u!114 &6594424714817955671
 MonoBehaviour:

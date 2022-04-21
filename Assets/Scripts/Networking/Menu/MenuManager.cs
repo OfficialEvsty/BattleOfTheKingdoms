@@ -1,3 +1,4 @@
+#define DEBUG
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine.SceneManagement;
 using Photon.Pun;
 using TMPro;
 using UnityEngine.UI;
+   
 
 namespace BattleOfKingdoms.Networking
 {
@@ -17,6 +19,10 @@ namespace BattleOfKingdoms.Networking
         {
             TextMeshProUGUI placeholder = (TextMeshProUGUI)nicknameInputField.placeholder;
             placeholder.text = (PhotonNetwork.NickName != "") ? PhotonNetwork.NickName : s_defaultPlaceholderText;
+
+#if DEBUG
+            PhotonNetwork.JoinRandomRoom();
+#endif
         }
 
         public void OnCreatedRoomClick()

@@ -1,9 +1,15 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - BattleOfKingdoms.Game.Cards.Behaviour.ReduceResourceEffect
+    - BattleOfKingdoms.Game.Cards.DeckInitializer
     - BattleOfKingdoms.Game.Entities.CameraPlayerTracking
+    - BattleOfKingdoms.Game.Entities.Deck
+    - BattleOfKingdoms.Game.Entities.ForestKingdom
     - BattleOfKingdoms.Game.Entities.Player
+    - BattleOfKingdoms.Game.Entities.PlayerDeck
     - BattleOfKingdoms.Game.Entities.PlayerInput
+    - BattleOfKingdoms.Game.Entities.SpawnCards
     - BattleOfKingdoms.Game.Entities.VirtualLeader
     - BattleOfKingdoms.Networking.ClientConnection
     - BattleOfKingdoms.Networking.CreatingRoomManager
@@ -17,13 +23,18 @@ ScriptsOnlyBuild:
     - BattleOfKingdoms.Networking.UIVersionShower
     - BattleOfKingdoms.Networking.UpdaterListRoom
     - ButtonPressListener
+    - CardDesk
+    - CardEventScriptableObject
+    - CardResourceScriptableObject
     - EntryPlayerHelper
     - GameController
     - GameSettings
     - MasterManager
     - RaiseEventManager
     - RoomEntryHelper
-    - SceneInitializer
+    - SceneUIController
+    - UIShowerEventCardInfo
+    - UIShowerResourceCardInfo
     PhotonUnityNetworking.Demos.dll:
     - Photon.Pun.Demo.Asteroids.Asteroid
     - Photon.Pun.Demo.Asteroids.Bullet
@@ -114,35 +125,57 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1546}
     - Class: 114
-      Script: {instanceID: 1790}
+      Script: {instanceID: 1556}
     - Class: 114
-      Script: {instanceID: 2340}
+      Script: {instanceID: 1794}
     - Class: 114
-      Script: {instanceID: 2450}
+      Script: {instanceID: 2344}
     - Class: 114
-      Script: {instanceID: 2486}
+      Script: {instanceID: 2370}
     - Class: 114
-      Script: {instanceID: 2568}
+      Script: {instanceID: 2458}
     - Class: 114
-      Script: {instanceID: 2742}
+      Script: {instanceID: 2494}
     - Class: 114
-      Script: {instanceID: 2748}
+      Script: {instanceID: 2504}
     - Class: 114
-      Script: {instanceID: 2836}
+      Script: {instanceID: 2550}
     - Class: 114
-      Script: {instanceID: 2844}
+      Script: {instanceID: 2580}
     - Class: 114
-      Script: {instanceID: 3058}
+      Script: {instanceID: 2598}
     - Class: 114
-      Script: {instanceID: 3242}
+      Script: {instanceID: 2678}
     - Class: 114
-      Script: {instanceID: 3298}
+      Script: {instanceID: 2762}
     - Class: 114
-      Script: {instanceID: 3786}
+      Script: {instanceID: 2768}
     - Class: 114
-      Script: {instanceID: 3792}
+      Script: {instanceID: 2856}
     - Class: 114
-      Script: {instanceID: 4372}
+      Script: {instanceID: 2864}
+    - Class: 114
+      Script: {instanceID: 3078}
+    - Class: 114
+      Script: {instanceID: 3262}
+    - Class: 114
+      Script: {instanceID: 3318}
+    - Class: 114
+      Script: {instanceID: 3764}
+    - Class: 114
+      Script: {instanceID: 3806}
+    - Class: 114
+      Script: {instanceID: 3812}
+    - Class: 114
+      Script: {instanceID: 4040}
+    - Class: 114
+      Script: {instanceID: 4082}
+    - Class: 114
+      Script: {instanceID: 4282}
+    - Class: 114
+      Script: {instanceID: 4404}
+    - Class: 114
+      Script: {instanceID: 18960}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -193,39 +226,39 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1514}
     - Class: 114
-      Script: {instanceID: 1790}
+      Script: {instanceID: 1794}
     - Class: 114
-      Script: {instanceID: 1902}
+      Script: {instanceID: 1906}
     - Class: 114
-      Script: {instanceID: 2170}
+      Script: {instanceID: 2174}
     - Class: 114
-      Script: {instanceID: 2340}
+      Script: {instanceID: 2344}
     - Class: 114
-      Script: {instanceID: 2450}
+      Script: {instanceID: 2458}
     - Class: 114
-      Script: {instanceID: 2486}
+      Script: {instanceID: 2494}
     - Class: 114
-      Script: {instanceID: 2512}
+      Script: {instanceID: 2522}
     - Class: 114
-      Script: {instanceID: 2568}
+      Script: {instanceID: 2580}
     - Class: 114
-      Script: {instanceID: 2742}
+      Script: {instanceID: 2762}
     - Class: 114
-      Script: {instanceID: 2748}
+      Script: {instanceID: 2768}
     - Class: 114
-      Script: {instanceID: 2752}
+      Script: {instanceID: 2772}
     - Class: 114
-      Script: {instanceID: 2800}
+      Script: {instanceID: 2820}
     - Class: 114
-      Script: {instanceID: 2836}
+      Script: {instanceID: 2856}
     - Class: 114
-      Script: {instanceID: 3084}
+      Script: {instanceID: 3104}
     - Class: 114
-      Script: {instanceID: 3560}
+      Script: {instanceID: 3582}
     - Class: 114
-      Script: {instanceID: 3710}
+      Script: {instanceID: 3732}
     - Class: 114
-      Script: {instanceID: 3824}
+      Script: {instanceID: 3850}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -294,111 +327,131 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1546}
     - Class: 114
-      Script: {instanceID: 1588}
+      Script: {instanceID: 1556}
     - Class: 114
-      Script: {instanceID: 1606}
+      Script: {instanceID: 1590}
     - Class: 114
-      Script: {instanceID: 1710}
+      Script: {instanceID: 1608}
     - Class: 114
-      Script: {instanceID: 1732}
+      Script: {instanceID: 1714}
     - Class: 114
       Script: {instanceID: 1736}
     - Class: 114
-      Script: {instanceID: 1758}
+      Script: {instanceID: 1740}
     - Class: 114
-      Script: {instanceID: 1790}
+      Script: {instanceID: 1762}
     - Class: 114
-      Script: {instanceID: 1902}
+      Script: {instanceID: 1794}
     - Class: 114
-      Script: {instanceID: 2044}
+      Script: {instanceID: 1906}
     - Class: 114
-      Script: {instanceID: 2136}
+      Script: {instanceID: 2048}
     - Class: 114
-      Script: {instanceID: 2170}
+      Script: {instanceID: 2140}
     - Class: 114
-      Script: {instanceID: 2180}
+      Script: {instanceID: 2174}
     - Class: 114
-      Script: {instanceID: 2340}
+      Script: {instanceID: 2182}
     - Class: 114
-      Script: {instanceID: 2450}
+      Script: {instanceID: 2344}
     - Class: 114
-      Script: {instanceID: 2486}
+      Script: {instanceID: 2370}
     - Class: 114
-      Script: {instanceID: 2568}
+      Script: {instanceID: 2458}
     - Class: 114
-      Script: {instanceID: 2606}
+      Script: {instanceID: 2494}
     - Class: 114
-      Script: {instanceID: 2742}
+      Script: {instanceID: 2504}
     - Class: 114
-      Script: {instanceID: 2748}
+      Script: {instanceID: 2550}
     - Class: 114
-      Script: {instanceID: 2750}
+      Script: {instanceID: 2580}
     - Class: 114
-      Script: {instanceID: 2752}
+      Script: {instanceID: 2620}
     - Class: 114
-      Script: {instanceID: 2764}
+      Script: {instanceID: 2678}
     - Class: 114
-      Script: {instanceID: 2824}
+      Script: {instanceID: 2762}
     - Class: 114
-      Script: {instanceID: 2836}
+      Script: {instanceID: 2768}
+    - Class: 114
+      Script: {instanceID: 2770}
+    - Class: 114
+      Script: {instanceID: 2772}
+    - Class: 114
+      Script: {instanceID: 2784}
     - Class: 114
       Script: {instanceID: 2844}
     - Class: 114
-      Script: {instanceID: 3084}
+      Script: {instanceID: 2856}
     - Class: 114
-      Script: {instanceID: 3116}
+      Script: {instanceID: 2864}
     - Class: 114
-      Script: {instanceID: 3130}
+      Script: {instanceID: 3104}
     - Class: 114
-      Script: {instanceID: 3172}
+      Script: {instanceID: 3136}
     - Class: 114
-      Script: {instanceID: 3216}
+      Script: {instanceID: 3150}
     - Class: 114
-      Script: {instanceID: 3242}
+      Script: {instanceID: 3192}
     - Class: 114
-      Script: {instanceID: 3298}
+      Script: {instanceID: 3236}
     - Class: 114
-      Script: {instanceID: 3394}
+      Script: {instanceID: 3262}
     - Class: 114
-      Script: {instanceID: 3418}
+      Script: {instanceID: 3318}
     - Class: 114
-      Script: {instanceID: 3518}
+      Script: {instanceID: 3414}
     - Class: 114
-      Script: {instanceID: 3524}
+      Script: {instanceID: 3438}
     - Class: 114
-      Script: {instanceID: 3560}
+      Script: {instanceID: 3538}
     - Class: 114
-      Script: {instanceID: 3668}
+      Script: {instanceID: 3544}
     - Class: 114
-      Script: {instanceID: 3670}
+      Script: {instanceID: 3582}
     - Class: 114
-      Script: {instanceID: 3688}
+      Script: {instanceID: 3690}
     - Class: 114
-      Script: {instanceID: 3706}
+      Script: {instanceID: 3692}
     - Class: 114
       Script: {instanceID: 3710}
     - Class: 114
+      Script: {instanceID: 3728}
+    - Class: 114
+      Script: {instanceID: 3732}
+    - Class: 114
       Script: {instanceID: 3764}
     - Class: 114
-      Script: {instanceID: 3778}
+      Script: {instanceID: 3788}
     - Class: 114
-      Script: {instanceID: 3824}
+      Script: {instanceID: 3802}
     - Class: 114
-      Script: {instanceID: 4020}
+      Script: {instanceID: 3806}
     - Class: 114
-      Script: {instanceID: 4022}
+      Script: {instanceID: 3850}
     - Class: 114
-      Script: {instanceID: 4154}
+      Script: {instanceID: 4040}
     - Class: 114
-      Script: {instanceID: 4204}
+      Script: {instanceID: 4048}
     - Class: 114
-      Script: {instanceID: 4338}
+      Script: {instanceID: 4050}
     - Class: 114
-      Script: {instanceID: 4398}
+      Script: {instanceID: 4082}
     - Class: 114
-      Script: {instanceID: 4440}
+      Script: {instanceID: 4184}
     - Class: 114
-      Script: {instanceID: 4452}
+      Script: {instanceID: 4234}
+    - Class: 114
+      Script: {instanceID: 4282}
+    - Class: 114
+      Script: {instanceID: 4370}
+    - Class: 114
+      Script: {instanceID: 4430}
+    - Class: 114
+      Script: {instanceID: 4472}
+    - Class: 114
+      Script: {instanceID: 4484}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -476,6 +529,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: BattleOfKingdoms.Game.Entities
     className: PlayerInput
+  - hash:
+      serializedVersion: 2
+      Hash: 48599a2fa856f02d48c0f596016014c9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CardEventScriptableObject
   - hash:
       serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
@@ -766,16 +825,16 @@ ScriptsOnlyBuild:
     className: BestRegionInPrefsProperty
   - hash:
       serializedVersion: 2
-      Hash: c1d728126ff1918728036c59106d32b2
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: RawImage
-  - hash:
-      serializedVersion: 2
       Hash: 18d89cb858d0cf8a1f38bb786789eaa7
     assemblyName: Assembly-CSharp.dll
     namespaceName: Photon.Chat.Demo
     className: ChatAppIdCheckerUI
+  - hash:
+      serializedVersion: 2
+      Hash: c1d728126ff1918728036c59106d32b2
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: RawImage
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -868,6 +927,12 @@ ScriptsOnlyBuild:
     className: TextMeshSpawner
   - hash:
       serializedVersion: 2
+      Hash: ce637f58c636d7d9e8e6b57f2d1907da
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BattleOfKingdoms.Game.Entities
+    className: SpawnCards
+  - hash:
+      serializedVersion: 2
       Hash: c656dcc13ae391b68d594cc8f9c590b0
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
@@ -884,6 +949,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Utilities.dll
     namespaceName: Photon.Pun.UtilityScripts
     className: CountdownTimer
+  - hash:
+      serializedVersion: 2
+      Hash: 398e1af65ef2ac49417ea35b3393637c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BattleOfKingdoms.Game.Cards
+    className: ResourceCard
   - hash:
       serializedVersion: 2
       Hash: 27e5341178f188b89bdc6495710b590c
@@ -940,6 +1011,12 @@ ScriptsOnlyBuild:
     className: CountOfPlayersProperty
   - hash:
       serializedVersion: 2
+      Hash: 5a5f49c394c2b1465d8e5a594454ef9f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CardResourceScriptableObject
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
@@ -962,6 +1039,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: BattleOfKingdoms.Networking
     className: LobbyManager
+  - hash:
+      serializedVersion: 2
+      Hash: 484c26f6adb58ff8c8c1bfc59b194692
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UIShowerResourceCardInfo
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -992,6 +1075,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.PunBasics
     className: LoaderAnime
+  - hash:
+      serializedVersion: 2
+      Hash: b41da95ce2c615eeb8aa35ac82b0f5f7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CardDesk
   - hash:
       serializedVersion: 2
       Hash: f40fedccd4adbc76605bea6d67537e4b
@@ -1036,6 +1125,12 @@ ScriptsOnlyBuild:
     className: OfflineModeProperty
   - hash:
       serializedVersion: 2
+      Hash: e7404c0f5a1009397d1b8fedd8b905a0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BattleOfKingdoms.Game.Entities
+    className: Deck
+  - hash:
+      serializedVersion: 2
       Hash: 4c0ebd9e77f5bc0558d19d8313e54bb9
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.SlotRacer.Utils
@@ -1046,6 +1141,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Utilities.dll
     namespaceName: Photon.Pun.UtilityScripts
     className: OnClickInstantiate
+  - hash:
+      serializedVersion: 2
+      Hash: f9523bdd7423b7a2d03a5c46625d0238
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BattleOfKingdoms.Game.Cards
+    className: EventCard
   - hash:
       serializedVersion: 2
       Hash: 00e94708ac94b5a38c9f21b9f89467a6
@@ -1396,7 +1497,7 @@ ScriptsOnlyBuild:
     className: PositionAsUV1
   - hash:
       serializedVersion: 2
-      Hash: 07949a2bb18bef8f9833ddfc1d0e401b
+      Hash: ca76f7d93059279904191fd4ddba8134
     assemblyName: Assembly-CSharp.dll
     namespaceName: BattleOfKingdoms.Game.Entities
     className: VirtualLeader
@@ -1432,7 +1533,7 @@ ScriptsOnlyBuild:
     className: ToDemoHubButton
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 67d330da9f9b53d3e666ebc00f178db1
     assemblyName: Assembly-CSharp.dll
     namespaceName: BattleOfKingdoms.Game.Entities
     className: Player
@@ -1798,6 +1899,12 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
+      Hash: 0d72aae532feb6835cdff1109e9c61d3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BattleOfKingdoms.Game.Entities
+    className: ForestKingdom
+  - hash:
+      serializedVersion: 2
       Hash: 0fb27be807aa299702f28ad0bcad1f46
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1832,6 +1939,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
     className: RegionListView
+  - hash:
+      serializedVersion: 2
+      Hash: d585a3d52474ea983ff11cddd2d5765b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UIShowerEventCardInfo
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1930,6 +2043,12 @@ ScriptsOnlyBuild:
     className: SpawnHelper
   - hash:
       serializedVersion: 2
+      Hash: e740d9a6ce4918eb4233d23f0c7e4bb9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BattleOfKingdoms.Game.Entities
+    className: PlayerDeck
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
@@ -1964,6 +2083,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: Photon.Chat.UtilityScripts
     className: TextToggleIsOnTransition
+  - hash:
+      serializedVersion: 2
+      Hash: 484e253ba0846b8fd0967c89f68b2911
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BattleOfKingdoms.Game.Cards.Behaviour
+    className: ReduceResourceEffect
   - hash:
       serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
@@ -2060,6 +2185,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
     className: ServerAddressProperty
+  - hash:
+      serializedVersion: 2
+      Hash: ecb18fd7af7e800c37407708b37d5966
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BattleOfKingdoms.Game.Cards
+    className: DeckInitializer
   - hash:
       serializedVersion: 2
       Hash: c656dcc13ae391b68d594cc8f9c590b0
@@ -2204,6 +2335,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: BattleOfKingdoms.Networking
     className: CreatingRoomManager
+  - hash:
+      serializedVersion: 2
+      Hash: 53cedeac1e3b4cc415699cfd17d16451
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SceneUIController
   platform: 5
   scenePathNames:
   - Assets/Scenes/Menu.unity

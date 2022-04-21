@@ -8,6 +8,7 @@ using BattleOfKingdoms.Game.Entities;
 public class RaiseEventManager : MonoBehaviourPun
 {
     public const byte NOTIFY_PLAYER_TURN = 0;
+    public const byte NOTIFY_PLAYER_TAKES_CARD = 1;
     [SerializeField] private VirtualLeader m_virtualLeader;
 
     private void OnEnable()
@@ -22,18 +23,23 @@ public class RaiseEventManager : MonoBehaviourPun
 
     private void NetworkingClient_EventReceived(EventData obj)
     {
-        Debug.Log($"Очередь из {m_virtualLeader.PlayersQueue.Count}");
         switch (obj.Code)
         {
             case NOTIFY_PLAYER_TURN:
                 bool isTurnEnd = false;
+
+                Debug.Log(obj.CustomData.GetType().IsArray);
+                object[] data = (object[])obj.CustomData;
+                int viewID = (int)data[0];
+                bool hasTurn = (bool)data[1];
+
                 foreach(Player playerQueue in m_virtualLeader.PlayersQueue)
                 {
                     Debug.Log($"Вызов то был (Кто отправил):{obj.Sender}*1000 + 1 ViewID: {playerQueue.photonView.ViewID}");
                     //Жесткий костыль, так как на сцене два PhotonView компонента, Player и VirtualLeader и они разные ID имеют.
-                    if (playerQueue.photonView.ViewID == obj.Sender * 1000 + 1)
+                    if (playerQueue.photonView.ViewID == viewID)
                     {
-                        playerQueue.HasTurn = (bool)obj.CustomData;
+                        playerQueue.HasTurn = hasTurn;
                         Debug.Log($"Свойство HasTurn у игрока {playerQueue.photonView.ViewID} было изменено на {playerQueue.HasTurn}");
                         if (!playerQueue.HasTurn)
                         {
@@ -47,7 +53,9 @@ public class RaiseEventManager : MonoBehaviourPun
                     m_virtualLeader.OnEndPlayerTurn();
                     isTurnEnd = false;
                 }
-                break;  
+                break;
+            //case NOTIFY_PLAYER_TAKES_CARD:
+
         }
     }   
 }

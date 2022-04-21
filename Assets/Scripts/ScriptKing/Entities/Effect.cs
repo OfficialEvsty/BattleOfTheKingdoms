@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IEffect
+namespace BattleOfKingdoms.Game.Entities
 {
-    bool IsNegative { get; set; }
+    public abstract class Effect : ScriptableObject
+    {
+        public bool IsNegative { get; protected set; }
+        public int Duration { get; protected set; }
+        public static System.Action<ResourceType, int> ReduceResourceEvent;
 
-    abstract void Apply();
+        public abstract void Apply(Kingdom targetKingdom);        
+    }
 }

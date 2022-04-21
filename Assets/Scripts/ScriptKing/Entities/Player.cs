@@ -16,9 +16,10 @@ namespace BattleOfKingdoms.Game.Entities
     {
         private RaycastHit m_hit;
         private PlayerInput m_playerInput;        
-        private Kingdom m_kingdom;
+        [SerializeField] private Kingdom m_kingdom;
         private NavMeshAgent m_navMeshAgent;
         public event System.Action EndTurnEvent;
+        public event System.Action<Player, Vector3> PositionChangedEvent;
 
         public PlayerDeck PlayerDeck;
         public string NickName { get { return photonView.Controller.NickName; } }
@@ -29,10 +30,11 @@ namespace BattleOfKingdoms.Game.Entities
         private void Awake()
         {
 
-            GameEventSystem.IssueGameEvent(new PlayerInstantiateEvent() { player = this });
+            
             PlayerDeck = GetComponentInChildren<PlayerDeck>();
             m_playerInput = GetComponent<PlayerInput>();
-            m_navMeshAgent = GetComponent<NavMeshAgent>();            
+            m_navMeshAgent = GetComponent<NavMeshAgent>();
+            GameEventSystem.IssueGameEvent(new PlayerInstantiateEvent() { player = this });
         }
 
         
@@ -47,13 +49,19 @@ namespace BattleOfKingdoms.Game.Entities
         private void LateUpdate()
         {
         }
-
+        [PunRPC]
+        private void SetPosition(Vector3 position)
+        {
+            transform.position = position;
+            PositionChangedEvent?.Invoke(this, position);
+        }
 
         public void StartTurn()
         {
             HasTurn = true;
             m_playerInput.TurnControls.IsEnabled = true;
-            PhotonNetwork.RaiseEvent(RaiseEventManager.NOTIFY_PLAYER_TURN, HasTurn, RaiseEventOptions.Default, SendOptions.SendReliable);
+            object[] datas = { photonView.ViewID, HasTurn};
+            PhotonNetwork.RaiseEvent(RaiseEventManager.NOTIFY_PLAYER_TURN, datas, RaiseEventOptions.Default, SendOptions.SendReliable);
         }
 
         private void EndTurn()
@@ -63,7 +71,8 @@ namespace BattleOfKingdoms.Game.Entities
                 HasTurn = false;
                 m_playerInput.TurnControls.IsEnabled = false;
                 EndTurnEvent?.Invoke();
-                PhotonNetwork.RaiseEvent(RaiseEventManager.NOTIFY_PLAYER_TURN, HasTurn, RaiseEventOptions.Default, SendOptions.SendReliable);
+                object[] datas = { photonView.ViewID, HasTurn };
+                PhotonNetwork.RaiseEvent(RaiseEventManager.NOTIFY_PLAYER_TURN, datas, RaiseEventOptions.Default, SendOptions.SendReliable);
                 Debug.Log("Нажал на кнопку конца хода");
             }
         }

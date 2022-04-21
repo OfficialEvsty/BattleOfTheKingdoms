@@ -17,12 +17,16 @@ namespace BattleOfKingdoms.Networking
         private void Start()
         {
             CustomSceneManager.ChangeScene(0);
-            PhotonNetwork.GameVersion = MasterManager.GameSettings.GameVersion;
-            PhotonNetwork.NickName = MasterManager.GameSettings.NickName;
+            
             PhotonNetwork.AutomaticallySyncScene = true;    
             PhotonNetwork.ConnectUsingSettings();
         }
 
+        private void Awake()
+        {
+            PhotonNetwork.GameVersion = MasterManager.GameSettings.GameVersion;
+            PhotonNetwork.NickName = MasterManager.GameSettings.NickName;
+        }
         public override void OnConnectedToMaster()
         {
             PhotonNetwork.JoinLobby(_customLobby);
