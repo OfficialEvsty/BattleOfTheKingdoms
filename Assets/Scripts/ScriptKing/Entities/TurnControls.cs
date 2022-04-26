@@ -20,6 +20,11 @@ namespace BattleOfKingdoms.Game.Entities
             IsEnabled = false;
         }
 
+        public void ChangeVisibleState()
+        {
+            m_buttonPressListener.gameObject.SetActive(IsEnabled);
+        }
+
         private void OnEndTurnButtonPressed()
         {
             if (!IsEnabled)

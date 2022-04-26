@@ -7,13 +7,18 @@ using Photon.Pun;
 
 namespace BattleOfKingdoms.Game.Entities
 {
+    [RequireComponent(typeof(SelectionManager))]
     public class PlayerInput : MonoBehaviourPunCallbacks
     {
         private ButtonPressListener m_buttonPressListener;
         private Camera m_playerCamera;
         private List<IUpdateDependent> m_updateDependents = new List<IUpdateDependent>();
+        private SelectionManager m_selectionManager;
         public TurnControls TurnControls { get; private set; }
         public MovementsInput MovementsInput { get; private set; }
+
+        public KeyCode PickUpKey = KeyCode.E;
+        public KeyCode ThrowKey = KeyCode.Q;
 
 
         private void Awake()
@@ -23,6 +28,7 @@ namespace BattleOfKingdoms.Game.Entities
             TurnControls = new TurnControls(m_buttonPressListener);
             MovementsInput = new MovementKeyBoard(transform);
             m_updateDependents.AddRange(new List<IUpdateDependent> { TurnControls, MovementsInput });
+            m_selectionManager = GetComponent<SelectionManager>();
         }
 
         private void Start()
@@ -40,7 +46,8 @@ namespace BattleOfKingdoms.Game.Entities
                 }
             }
 
-            CatchEscapeClick();
+            CatchClicks();
+            Debug.Log($"Отловил {m_selectionManager.SelectedTarget}");
         }
 
         private void OnDestroy()
@@ -56,12 +63,35 @@ namespace BattleOfKingdoms.Game.Entities
                 m_playerCamera.GetComponent<CameraPlayerTracking>().Target = transform;
             }
         }
+        private void CatchClicks()
+        {
+            CatchEscapeClick();
+            CatchPickUpClick();
+            CatchThrowClick();
+        }
 
         private void CatchEscapeClick()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 OnClickActionsHolder.EscapeClickEvent?.Invoke();
+            }
+        }
+
+        private void CatchPickUpClick()
+        {
+            Transform target = m_selectionManager.SelectedTarget;
+            if (Input.GetKeyDown(PickUpKey) && target)
+            {
+                OnClickActionsHolder.PickUpClickEvent?.Invoke(target);
+            }
+        }
+
+        private void CatchThrowClick()
+        {
+            if (Input.GetKeyDown(ThrowKey))
+            {
+                OnClickActionsHolder.ThrowOutClickEvent?.Invoke();
             }
         }
     }

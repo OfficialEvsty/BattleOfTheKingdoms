@@ -5,6 +5,9 @@ using BattleOfKingdoms.Game.Entities;
 
 namespace BattleOfKingdoms.Game.Cards
 {
+    [RequireComponent(typeof(BoxCollider))]
+    [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(UIShowerEventCardInfo))]
     public class EventCard : MonoBehaviour, ICardEvent
     {
         [SerializeField] private CardEventScriptableObject m_cardEventSO;

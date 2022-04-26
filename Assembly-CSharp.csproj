@@ -94,6 +94,7 @@
     <Compile Include="Assets\Scripts\ScriptKing\Entities\Card Interface Fabric\CardFactory.cs" />
     <Compile Include="Assets\Scripts\ScriptKing\Entities\CardBehaviours\EventCard.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChannelSelector.cs" />
+    <Compile Include="Assets\Scripts\ScriptKing\Entities\SupportEntities\OnClickActionsHolder.cs" />
     <Compile Include="Assets\Scripts\Networking\Addons_Crystal\CustomSceneManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\Scripts\Networking\Lobby\UILobbyManager.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="Assets\Scripts\ScriptKing\PhotonManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs" />
+    <Compile Include="Assets\SelectionManager.cs" />
     <Compile Include="Assets\CameraPlayerTracking.cs" />
     <Compile Include="Assets\Scripts\ScriptKing\Managing Movement\MovementsInput.cs" />
     <Compile Include="Assets\Scripts\Networking\RoomsListingScene\UIShowRooms.cs" />
@@ -138,6 +140,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\Scripts\Not Used\SpawnHelper.cs" />
+    <Compile Include="Assets\Scripts\ScriptKing\Managing Movement\ManagingUI\SceneUIController.cs" />
     <Compile Include="Assets\Scripts\ScriptKing\Entities\PlayerDeck.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
@@ -161,8 +164,8 @@
     <Compile Include="Assets\Scripts\ScriptKing\Entities\Kingdom.cs" />
     <Compile Include="Assets\Scripts\EventSystem\PlayerInstantiateEvent.cs" />
     <Compile Include="Assets\Scripts\Networking\CreatingRoomManager\CreatingRoomManager.cs" />
-    <Compile Include="Assets\Scripts\ScriptKing\Managing Movement\ManagingUI\SceneUIController.cs" />
-    <Compile Include="Assets\Scripts\ScriptKing\Entities\SupportEntities\OnClickActionsHolder.cs" />
+    <Compile Include="Assets\ItemHandler.cs" />
+    <Compile Include="Assets\KeyCodeInfo.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

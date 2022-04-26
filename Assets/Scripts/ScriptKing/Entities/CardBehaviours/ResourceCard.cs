@@ -7,6 +7,8 @@ using UnityEngine.Events;
 namespace BattleOfKingdoms.Game.Cards
 {
     [RequireComponent(typeof(UIShowerResourceCardInfo))]
+    [RequireComponent(typeof(BoxCollider))]
+    [RequireComponent(typeof(Rigidbody))]
     public class ResourceCard : MonoBehaviour, ICardResource
     {
         [SerializeField] private CardResourceScriptableObject m_cardResourceSO;

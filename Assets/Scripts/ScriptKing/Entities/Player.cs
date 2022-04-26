@@ -60,6 +60,7 @@ namespace BattleOfKingdoms.Game.Entities
         {
             HasTurn = true;
             m_playerInput.TurnControls.IsEnabled = true;
+            m_playerInput.TurnControls.ChangeVisibleState();
             object[] datas = { photonView.ViewID, HasTurn};
             PhotonNetwork.RaiseEvent(RaiseEventManager.NOTIFY_PLAYER_TURN, datas, RaiseEventOptions.Default, SendOptions.SendReliable);
         }
@@ -70,6 +71,7 @@ namespace BattleOfKingdoms.Game.Entities
             {                
                 HasTurn = false;
                 m_playerInput.TurnControls.IsEnabled = false;
+                m_playerInput.TurnControls.ChangeVisibleState();
                 EndTurnEvent?.Invoke();
                 object[] datas = { photonView.ViewID, HasTurn };
                 PhotonNetwork.RaiseEvent(RaiseEventManager.NOTIFY_PLAYER_TURN, datas, RaiseEventOptions.Default, SendOptions.SendReliable);

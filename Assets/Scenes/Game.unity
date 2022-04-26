@@ -459,7 +459,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180894928}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -2130,6 +2130,22 @@ PrefabInstance:
     - target: {fileID: 8495943276365567627, guid: b03c4e9252ccac240a66282a33c371ec, type: 3}
       propertyPath: m_Name
       value: Game Dice
+      objectReference: {fileID: 0}
+    - target: {fileID: 8495943276365567627, guid: b03c4e9252ccac240a66282a33c371ec, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729892203083452695, guid: b03c4e9252ccac240a66282a33c371ec, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729892203083452695, guid: b03c4e9252ccac240a66282a33c371ec, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729892203083452699, guid: b03c4e9252ccac240a66282a33c371ec, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9127802253721406513, guid: b03c4e9252ccac240a66282a33c371ec, type: 3}
       propertyPath: m_RootOrder
