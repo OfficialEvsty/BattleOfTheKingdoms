@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3997696378470542597}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.9030594, y: -0.159, z: 5.6446595}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 20, y: 30, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -94,5 +94,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf1274f560cbb034885ad1ff54b7d08c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SizeDeck: 128
-  f_eventToResource: 0.25
+  m_deckInitializer: {fileID: 0}

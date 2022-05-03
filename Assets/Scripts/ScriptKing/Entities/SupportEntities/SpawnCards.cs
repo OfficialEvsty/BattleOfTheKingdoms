@@ -10,6 +10,8 @@ namespace BattleOfKingdoms.Game.Entities
     {
         [SerializeField] private GameObject m_eventCardPrefab;
         [SerializeField] private GameObject m_resourceCardPrefab;
+        private List<Transform> spawnedCards = new List<Transform>();
+        public List<Transform> SpawnedCards { get { return spawnedCards; } }
         private Transform m_posToSpawnCards;
         private float f_xAxis = -2;
 
@@ -26,6 +28,7 @@ namespace BattleOfKingdoms.Game.Entities
             cardEvent.transform.position += offset;
             cardEvent.AddComponent<EventCard>();
             cardEvent.GetComponent<EventCard>().SetCardInfo(cardEventInfoSO);
+            spawnedCards.Add(cardEvent.transform);
             f_xAxis += 0.5f;
             return cardEvent.GetComponent<ICardEvent>();
         }
@@ -38,6 +41,7 @@ namespace BattleOfKingdoms.Game.Entities
             cardResource.transform.position += offset;
             cardResource.AddComponent<ResourceCard>();
             cardResource.GetComponent<ResourceCard>().SetCardInfo(cardResourceInfoSO);
+            spawnedCards.Add(cardResource.transform);
             f_xAxis += 0.5f;
             return cardResource.GetComponent<ICardResource>();
         }

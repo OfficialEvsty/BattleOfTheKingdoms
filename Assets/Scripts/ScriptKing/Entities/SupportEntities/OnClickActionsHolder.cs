@@ -7,4 +7,5 @@ public class OnClickActionsHolder
     public static System.Action EscapeClickEvent;
     public static System.Action<Transform> PickUpClickEvent;
     public static System.Action ThrowOutClickEvent;
+    public static System.Action<float> MoveTrackEvent;
 }

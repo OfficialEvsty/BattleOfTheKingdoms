@@ -31,8 +31,8 @@ namespace Photon.Pun.Demo.SlotRacer.Utils
 		{
 			return GetVelocity(t).normalized;
 		}
-		
-		public void Reset ()
+
+        public void Reset ()
 		{
 			points = new Vector3[] {
 				new Vector3(1f, 0f, 0f),
