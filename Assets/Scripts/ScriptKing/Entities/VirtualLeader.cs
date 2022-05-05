@@ -27,7 +27,7 @@ namespace BattleOfKingdoms.Game.Entities
 
         private void Awake()
         {
-            GameEventSystem.AddEventObserver(this);
+            GameEventSystem.AddEventObserver(this);            
         }
         private void Start()
         {            

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7271540657499576692}
   - component: {fileID: 5733069997727609428}
+  - component: {fileID: 2713041685212876947}
   m_Layer: 0
   m_Name: ContainerCards
   m_TagString: Untagged
@@ -44,6 +45,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   i_maxCountCards: 1
+  m_cardPositionsInContainerDeck:
+  - {x: 0, y: 0, z: 0.375}
+  - {x: 0.5, y: 0, z: 0.25}
+  - {x: -0.5, y: 0, z: 0.25}
+  - {x: 1, y: 0, z: 0}
+  - {x: -1, y: 0, z: 0}
+--- !u!114 &2713041685212876947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8478973228218637523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c48e5d677435b142a00eb5cf8b84591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   f_position01: 0
-  f_timeToDelay: 0
-  m_cardPositionsInContainerDeck: []
+  m_bezierCurve: {fileID: 0}
+  f_timeToDelay: 0.01
+  SpecifyBezierObjPositionOnCurveEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: BattleOfKingdoms.Game.Entities.ContainerDeck, Assembly-CSharp
+        m_MethodName: OnContainerCardOnEndPoint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

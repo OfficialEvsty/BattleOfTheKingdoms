@@ -17,3 +17,6 @@ MonoBehaviour:
   CardsResourceDeck:
   - {fileID: 11400000, guid: 282accd6c104bf54787d82d7b18467f9, type: 2}
   - {fileID: 11400000, guid: b255d824e22997c488da0ace4307d82a, type: 2}
+  - {fileID: 11400000, guid: b255d824e22997c488da0ace4307d82a, type: 2}
+  - {fileID: 11400000, guid: b255d824e22997c488da0ace4307d82a, type: 2}
+  - {fileID: 11400000, guid: 282accd6c104bf54787d82d7b18467f9, type: 2}

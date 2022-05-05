@@ -15,7 +15,7 @@ namespace BattleOfKingdoms.Game.Entities
         private List<IUpdateDependent> m_updateDependents = new List<IUpdateDependent>();
         private SelectionManager m_selectionManager;
         public TurnControls TurnControls { get; private set; }
-        public MovementsInput MovementsInput { get; private set; }
+        public GeneralInput GeneralInput { get; private set; }
 
         public KeyCode PickUpKey = KeyCode.E;
         public KeyCode ThrowKey = KeyCode.Q;
@@ -26,9 +26,9 @@ namespace BattleOfKingdoms.Game.Entities
             m_buttonPressListener = FindObjectOfType<ButtonPressListener>();
             m_playerCamera = FindObjectOfType<Camera>();
             TurnControls = new TurnControls(m_buttonPressListener);
-            MovementsInput = new MovementKeyBoard(transform);
+            GeneralInput = new InputKeyBoardAndMouse(transform);
             
-            m_updateDependents.AddRange(new List<IUpdateDependent> { TurnControls, MovementsInput });
+            m_updateDependents.AddRange(new List<IUpdateDependent> { TurnControls, GeneralInput });
             m_selectionManager = GetComponent<SelectionManager>();
         }
 
@@ -75,9 +75,13 @@ namespace BattleOfKingdoms.Game.Entities
 
         private void SendMouseTrack()
         {
-            var mouseTrack = ((MovementKeyBoard)MovementsInput).MouseTrack;
+            var mouseTrack = ((InputKeyBoardAndMouse)GeneralInput).MouseTrack;
+            var swipe = ((InputKeyBoardAndMouse)GeneralInput).Swipe;
             if (System.Math.Abs(mouseTrack) > 0)
+            {
                 OnClickActionsHolder.MoveTrackEvent?.Invoke(mouseTrack);
+                OnClickActionsHolder.SwipeEvent?.Invoke(swipe);
+            }                
         }
 
         private void CatchEscapeClick()
